@@ -91,6 +91,11 @@ static NSString * const ZSSRichTextEditorToolbarNone = @"com.zedsaid.toolbaritem
 @property (nonatomic, strong) UIColor *toolbarItemSelectedTintColor;
 
 /**
+ *  Notify when the text length > 0
+ */
+@property (nonatomic) BOOL hasChanged;
+
+/**
  *  Sets the HTML for the entire editor
  *
  *  @param html  HTML string to set for the editor

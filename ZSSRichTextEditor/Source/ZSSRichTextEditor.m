@@ -1063,6 +1063,7 @@ static Class hackishFixClass = Nil;
 #pragma mark - UITextView Delegate
 
 - (void)textViewDidChange:(UITextView *)textView {
+    
     CGRect line = [textView caretRectForPosition:textView.selectedTextRange.start];
     CGFloat overflow = line.origin.y + line.size.height - ( textView.contentOffset.y + textView.bounds.size.height - textView.contentInset.bottom - textView.contentInset.top );
     if ( overflow > 0 ) {
@@ -1082,7 +1083,7 @@ static Class hackishFixClass = Nil;
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
-    
+    self.hasChanged = ([self getText].length > 0) ? true : false;
     
     NSString *urlString = [[request URL] absoluteString];
     NSLog(@"web request");
