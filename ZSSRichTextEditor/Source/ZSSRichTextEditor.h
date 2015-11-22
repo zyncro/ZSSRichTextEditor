@@ -55,6 +55,14 @@ static NSString * const ZSSRichTextEditorToolbarNone = @"com.zedsaid.toolbaritem
 @interface ZSSRichTextEditor : UIViewController <UIWebViewDelegate, HRColorPickerViewControllerDelegate, UITextViewDelegate>
 
 
+@property (nonatomic, strong) UIView *toolbarHolder;
+
+/**
+ *  Notify and show attach image
+ */
+@property (nonatomic) BOOL hasMultimediaFile;
+
+
 /**
  *  The base URL to use for the webView
  */

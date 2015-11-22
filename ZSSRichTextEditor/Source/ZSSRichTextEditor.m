@@ -77,9 +77,8 @@ static Class hackishFixClass = Nil;
 @end
 
 @interface ZSSRichTextEditor ()
-@property (nonatomic, strong) UIScrollView *toolBarScroll;
 @property (nonatomic, strong) UIToolbar *toolbar;
-@property (nonatomic, strong) UIView *toolbarHolder;
+@property (nonatomic, strong) UIScrollView *toolBarScroll;
 @property (nonatomic, strong) NSString *htmlString;
 @property (nonatomic, strong) UIWebView *editorView;
 @property (nonatomic, strong) ZSSTextView *sourceView;
@@ -1249,6 +1248,8 @@ static Class hackishFixClass = Nil;
             [self setFooterHeight:(keyboardHeight - 8)];
             [self setContentHeight: self.editorViewFrame.size.height];
             
+            self.hasMultimediaFile = YES;
+            
         } completion:nil];
         
     } else {
@@ -1271,6 +1272,8 @@ static Class hackishFixClass = Nil;
             CGRect sourceFrame = self.sourceView.frame;
             sourceFrame.size.height = self.view.frame.size.height;
             self.sourceView.frame = sourceFrame;
+            
+            self.hasMultimediaFile = NO;
             
         } completion:nil];
         
